@@ -1,0 +1,64 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* Header */
+
+.header {
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    background: grey;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header > h1 {
+    font-size: 1.6rem;
+}
+
+.header-right {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header-ul {
+    display: flex;
+    list-style: none;
+}
+
+.header-li {
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.auth {
+    display: flex;
+}
+
+.auth > button {
+    height: 2.4rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 0;
+    margin-left: 5px;
+}
+
+.auth > button:hover {
+    color: white;
+    background: #337ab7;
+}
+
+
+/* Body Container */
+
+
