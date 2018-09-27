@@ -4,7 +4,6 @@ const fs = require("fs");
 const template = require("./client/detail.js");
 
 const app = express();
-
 app.use(express.static(__dirname + "/client"));
 
 // Base Route
