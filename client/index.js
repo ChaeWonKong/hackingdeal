@@ -1,8 +1,9 @@
 module.exports = {
   HTML: data => {
-    const items = data.map(item => {
-      const itemId = Number(item.id) + 1;
-      return `
+    const items = data
+      .map(item => {
+        const itemId = Number(item.id) + 1;
+        return `
             <div class="item">
                 <div class="item-img">
                     <a href="/${itemId}">
@@ -12,10 +13,9 @@ module.exports = {
                 <a href="/${itemId}"><div class="item-text">
                     <p class="item-title">${item.title}</p>
                     <p class="item-price">${item.price}</p>
-                </div></a>
-            </div>
-            `;
-    });
+                </div></a></div>`;
+      })
+      .join("");
 
     return `
           <html lang="ko">
