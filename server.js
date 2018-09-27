@@ -1,11 +1,12 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
-const detail = require("./client/detail.js");
-const index = require("./client/index.js");
+const detail = require(path.join(__dirname, "/client/detail.js"));
+const index = require(path.join(__dirname, "/client/index.js"));
+const PORT = process.env.PORT || 5000;
 
 const app = express();
-app.use(express.static(__dirname + "/client"));
+app.use(express.static(path.join(__dirname, "/client")));
 
 // Base Route
 app.get("/", (req, res) => {
@@ -38,6 +39,6 @@ app.get("/:pageId", (req, res) => {
   });
 });
 
-app.listen(4000, () => {
-  console.log("Server is running on:4000");
+app.listen(PORT, () => {
+  console.log(`Listening on:${PORT}}`);
 });
