@@ -76,9 +76,6 @@ a {
 .item {
     margin: 10px;
     width: 300px;
-    height: 450px;
-    background: #bbb;
-    
 }
 
 .item::after {
@@ -87,14 +84,26 @@ a {
 }
 
 .item-img {
-    background: #bbb;
+    background: #fff;
     height: 300px;
 }
 
 .item-text {
+    padding: 15px;
     background: #eee;
-    height: 150px;
 }
+
+.item-title{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.item-price {
+    font-size: 1rem;
+    color: #EF4123;
+}
+
+/* Detail */
 
 .item-detail {
     margin-top: 100px;

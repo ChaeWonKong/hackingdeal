@@ -9,7 +9,16 @@ app.use(express.static(__dirname + "/client"));
 
 // Base Route
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "/index.html"));
+  fs.readFile(path.join(__dirname + "/data/items.json"), (err, data) => {
+    if (err) {
+      throw err;
+    } else {
+      const items = JSON.parse(data).Deals;
+      const html = index.HTML(items);
+      res.sendFile(path.join(__dirname, "client"));
+      res.send(html);
+    }
+  });
 });
 
 // Detail Route
