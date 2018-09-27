@@ -49,7 +49,7 @@ a {
     display: flex;
 }
 
-.auth > button {
+.auth {
     background: transparent;
     color: white;
     height: 2.4rem;
@@ -59,11 +59,7 @@ a {
     margin-left: 10px;
 }
 
-.auth > button:last-child {
-    margin-left: 5px;
-}
-
-.auth > button:hover {
+.auth:hover {
     background: #337ab7;
     transition: all .1s ease-in-out;
 }
@@ -100,4 +96,28 @@ a {
     height: 150px;
 }
 
+.item-detail {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item-buy {
+    background: transparent;
+    color: black;
+    height: 2.4rem;
+    width: 5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    margin-left: 10px;
+}
+
+.item-buy:hover {
+    background: #ffce1e;
+    color: white;
+    transition: all .1s ease-in-out;
+}
 

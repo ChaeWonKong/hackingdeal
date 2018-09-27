@@ -23,6 +23,7 @@ app.get("/:pageId", (req, res) => {
       const item = JSON.parse(data).Deals[req.params.pageId - 1];
       const { title, price, img, description, url } = item;
       const html = template.HTML({ title, price, img, description, url });
+      res.sendFile(path.join(__dirname, "client"));
       res.send(html);
     }
   });
