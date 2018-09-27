@@ -6,7 +6,7 @@ module.exports = {
             <div class="item">
                 <div class="item-img">
                     <a href="/${itemId}">
-                    <img src="${item.img}" width="300px" height="300px"/>
+                    <img class="index-img" src="${item.img}" />
                     </a>
                 </div>
                 <a href="/${itemId}"><div class="item-text">

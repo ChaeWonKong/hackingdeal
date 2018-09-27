@@ -84,8 +84,16 @@ a {
 }
 
 .item-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: #fff;
     height: 300px;
+}
+
+.index-img {
+    max-height: 300px;
+    max-width: 300px;
 }
 
 .item-text {
