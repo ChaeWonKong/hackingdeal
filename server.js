@@ -1,7 +1,8 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
-const template = require("./client/detail.js");
+const detail = require("./client/detail.js");
+const index = require("./client/index.js");
 
 const app = express();
 app.use(express.static(__dirname + "/client"));
@@ -21,7 +22,7 @@ app.get("/:pageId", (req, res) => {
     else {
       const item = JSON.parse(data).Deals[req.params.pageId - 1];
       const { title, price, img, description, url } = item;
-      const html = template.HTML({ title, price, img, description, url });
+      const html = detail.HTML({ title, price, img, description, url });
       res.sendFile(path.join(__dirname, "client"));
       res.send(html);
     }
