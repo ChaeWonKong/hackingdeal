@@ -1,0 +1,19 @@
+{
+  "name": "monsterdeal",
+  "version": "1.0.0",
+  "description": "Discounted deal provision site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChaeWonKong/monsterdeal.git"
+  },
+  "author": "Leon Kong (Chaewonkong@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ChaeWonKong/monsterdeal/issues"
+  },
+  "homepage": "https://github.com/ChaeWonKong/monsterdeal#readme"
+}
