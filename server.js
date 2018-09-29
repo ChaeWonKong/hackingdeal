@@ -31,7 +31,7 @@ app.get("/:pageId", (req, res) => {
 
 // Create Route
 app.get("/create", (req, res) => {
-  const html = create.HTML();
+  const html = create.HTML;
   res.send(html);
 });
 
