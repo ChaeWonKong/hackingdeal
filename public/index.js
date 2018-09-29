@@ -1,5 +1,3 @@
-const truncate = require("truncate");
-
 module.exports = {
   HTML: data => {
     const items = data
@@ -13,7 +11,7 @@ module.exports = {
                     </a>
                 </div>
                 <a href="/${itemId}"><div class="item-text">
-                    <p class="item-title">${truncate(`${item.title}`, 70)}</p>
+                    <p class="item-title">${item.title}</p>
                     <p class="item-price">${item.price}</p>
                 </div></a></div>`;
       })
