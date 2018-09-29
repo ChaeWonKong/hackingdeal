@@ -5,7 +5,7 @@ const detail = require(path.join(__dirname, "/public/detail.js"));
 const index = require(path.join(__dirname, "/public/index.js"));
 const app = express();
 
-// app.use(express.static(path.join(__dirname, "/public")));
+app.use(express.static(path.join(__dirname, "/public")));
 
 // Detail Route
 app.get("/:pageId", (req, res) => {
