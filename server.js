@@ -22,10 +22,7 @@ app.get("/create", (req, res) => {
 
 // Download data
 app.get("/download", (req, res) => {
-  const html = `<a href="/">Go Hmle</a>`;
-  const file = path.join(__dirname + `/data/items.js`);
-  res.download(file);
-  res.send(html);
+  res.download(path.join(__dirname + "/data/items.json"));
 });
 
 // Detail Route
