@@ -5,6 +5,7 @@ const detail = require(path.join(__dirname, "/public/detail.js"));
 const index = require(path.join(__dirname, "/public/index.js"));
 const create = require(path.join(__dirname, "/public/create.js"));
 const bodyParser = require("body-parser");
+const uuidv1 = require("uuid/v1");
 
 const app = express();
 
@@ -53,6 +54,7 @@ app.post("/create", (req, res) => {
       }
       let DATA = JSON.parse(data).Deals;
       const newData = {
+        id: uuidv1(),
         title: body.title,
         price: body.price,
         img: body.img,
@@ -60,13 +62,19 @@ app.post("/create", (req, res) => {
         url: body.url
       };
       DATA.push(newData);
+      console.log(DATA);
 
-      fs.writeFile(path.join(__dirname + "/data/items.json"), DATA, err => {
-        if (err) {
-          throw err;
+      fs.writeFile(
+        path.join(__dirname + "/data/items.json"),
+        DATA,
+        "utf8",
+        err => {
+          if (err) {
+            throw err;
+          }
+          res.redirect(302, "/");
         }
-        res.redirect(302, "/");
-      });
+      );
     }
   );
 });
