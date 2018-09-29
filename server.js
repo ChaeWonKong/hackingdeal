@@ -20,6 +20,14 @@ app.get("/create", (req, res) => {
   res.send(html);
 });
 
+// Download data
+app.get("/download", (req, res) => {
+  const html = `<a href="/">Go Hmle</a>`;
+  const file = path.join(__dirname + `/data/items.js`);
+  res.download(file);
+  res.send(html);
+});
+
 // Detail Route
 app.get("/:pageId", (req, res) => {
   fs.readFile(path.join(__dirname + "/data/items.json"), (err, data) => {
