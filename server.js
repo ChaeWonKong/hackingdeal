@@ -4,7 +4,6 @@ const fs = require("fs");
 const detail = require(path.join(__dirname, "/public/detail.js"));
 const index = require(path.join(__dirname, "/public/index.js"));
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 // app.use(express.static(path.join(__dirname, "/public")));
 
@@ -43,6 +42,6 @@ app.get("/", (req, res) => {
   });
 });
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Listening on: ${PORT}`);
+app.listen(3000, () => {
+  console.log(`Listening on: 3000`);
 });
