@@ -1,5 +1,6 @@
 module.exports = {
-  HTML: `<html>
+  HTML: () => {
+    return `<html>
             <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
                 <link rel="stylesheet" href="./main.css" />
                 <header class="header">
@@ -15,14 +16,15 @@ module.exports = {
                     <button class="auth">Sign In/Up</button>
                 </div>
             </header>
-                <div class="create-container">
-                    <input type="text" placeholder="Title" />
-                    <input type="text" placeholder="Price" />
-                    <input type="text" placeholder="Image Url"/>
-                    <input type="text" placeholder="Purchase Link"/>
-                    <Textarea placeholder="Description"></Textarea>
-                    <button>submit</button>
-                </div>
+                <form action="/create" method="post" class="create-container">
+                    <input class="create-input" type="text" name="title" placeholder="Title" />
+                    <input class="create-input" type="text" name="price" placeholder="Price" />
+                    <input class="create-input" type="text" name="img" placeholder="Image Url"/>
+                    <input class="create-input" type="text" name="url" placeholder="Purchase Link"/>
+                    <Textarea class="create-textarea" name="description" placeholder="Description"></Textarea>
+                    <input type="submit" value="submit" class="create-button" />
+                </form>
                 </html>
-            `
+            `;
+  }
 };

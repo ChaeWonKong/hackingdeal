@@ -140,3 +140,35 @@ a {
     transition: all .1s ease-in-out;
 }
 
+/* Create Data */
+.create-container {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-input {
+    width: 1000px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.create-textarea {
+    width: 1000px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.create-button {
+    font-size: 1rem;
+    width: 5rem;
+    height: 2rem;
+    background: white;
+    border-radius: 1rem;
+}
+
+.create-button:hover {
+    background: #bbb;
+}
