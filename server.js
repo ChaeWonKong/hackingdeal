@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const detail = require(path.join(__dirname, "/public/detail.js"));
 const index = require(path.join(__dirname, "/public/index.js"));
+const create = require(path.join(__dirname, "/public/create.js"));
 const app = express();
 
 app.use(express.static(path.join(__dirname, "/public")));
@@ -26,6 +27,12 @@ app.get("/:pageId", (req, res) => {
       res.send(html);
     }
   });
+});
+
+// Create Route
+app.get("/create", (req, res) => {
+  const html = create.HTML();
+  res.send(html);
 });
 
 // Base Route
