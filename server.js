@@ -4,7 +4,7 @@ const fs = require("fs");
 const detail = require(path.join(__dirname, "/client/detail.js"));
 const index = require(path.join(__dirname, "/client/index.js"));
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 
 app.use(express.static(path.join(__dirname, "/client")));
 
