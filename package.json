@@ -20,6 +20,7 @@
   "homepage": "https://github.com/ChaeWonKong/monsterdeal#readme",
   "dependencies": {
     "express": "^4.16.3",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "truncate": "^2.0.1"
   }
 }
