@@ -3,8 +3,9 @@ const path = require("path");
 const fs = require("fs");
 const detail = require(path.join(__dirname, "/client/detail.js"));
 const index = require(path.join(__dirname, "/client/index.js"));
-
 const app = express();
+const PORT = process.env.PORT || 5000;
+
 app.use(express.static(path.join(__dirname, "/client")));
 
 // Detail Route
@@ -42,6 +43,6 @@ app.get("/", (req, res) => {
   });
 });
 
-app.listen(4000, () => {
-  console.log(`Listening on: 4000`);
+app.listen(PORT, () => {
+  console.log(`Listening on: ${PORT}}`);
 });
