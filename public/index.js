@@ -48,6 +48,7 @@ module.exports = {
     <div class="container">
         ${items}
     </div>
+    </body>
           `;
   }
 };

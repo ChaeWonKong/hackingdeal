@@ -1,9 +1,11 @@
 module.exports = {
   HTML: (title, price, img, description, url) => {
-    return `
-            
+    return `<html>
+        <head>
             <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
             <link rel="stylesheet" href="./main.css" />
+        </head>
+        <body>
             <header class="header">
                 <h1 class="header-h1"><a href="/">MonsterDeal</a></h1>
                 <div class="header-right">
@@ -25,6 +27,7 @@ module.exports = {
                 <button class="item-buy">
                 <a href="${url}">Buy</a></button>
             </div>
+        </body>
             `;
   }
 };
