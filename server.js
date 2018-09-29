@@ -46,8 +46,9 @@ app.get("/:pageId", (req, res) => {
         );
         res.sendFile(path.join(__dirname, "/public"));
         res.send(html);
+      } else {
+        res.send("oops");
       }
-      res.send("oops");
     }
   });
 });
