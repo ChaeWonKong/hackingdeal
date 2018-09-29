@@ -3,7 +3,7 @@ module.exports = {
     return `
             
             <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-            <link rel="stylesheet" type="text/css" href="./main.css" />
+            
             <header class="header">
                 <h1 class="header-h1"><a href="/">MonsterDeal</a></h1>
                 <div class="header-right">
