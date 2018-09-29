@@ -13,7 +13,7 @@ module.exports = {
                     </a>
                 </div>
                 <a href="/${itemId}"><div class="item-text">
-                    <p class="item-title">${truncate(`${item.title}`, 30)}</p>
+                    <p class="item-title">${truncate(`${item.title}`, 70)}</p>
                     <p class="item-price">${item.price}</p>
                 </div></a></div>`;
       })
