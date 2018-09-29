@@ -1,7 +1,7 @@
 module.exports = {
-  HTML: ({ title, price, img, description, url }) => {
+  HTML: (title, price, img, description, url) => {
     return `
-            <link rel="stylesheet" type="text/css" href="main.css" />
+            
             <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
             <header class="header">
                 <h1 class="header-h1"><a href="/">MonsterDeal</a></h1>

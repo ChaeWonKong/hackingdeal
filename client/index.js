@@ -2,7 +2,7 @@ module.exports = {
   HTML: data => {
     const items = data
       .map(item => {
-        const itemId = Number(item.id) + 1;
+        const itemId = String(Number(item.id) + 1);
         return `
             <div class="item">
                 <div class="item-img">
@@ -25,7 +25,7 @@ module.exports = {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Monster Deals</title>
 
-    <link rel="stylesheet" type="text/css" href="main.css" />
+    
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 </head>
