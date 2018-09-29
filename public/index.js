@@ -27,6 +27,7 @@ module.exports = {
 
     
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="./main.css" />
     
 
 </head>

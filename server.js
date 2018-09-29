@@ -6,7 +6,7 @@ const index = require(path.join(__dirname, "/public/index.js"));
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static(path.join(__dirname, "/public")));
+// app.use(express.static(path.join(__dirname, "/public")));
 
 // Detail Route
 app.get("/:pageId", (req, res) => {
