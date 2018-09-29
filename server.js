@@ -42,4 +42,4 @@ app.get("/", (req, res) => {
   });
 });
 
-module.exports = server;
+module.exports = app;
