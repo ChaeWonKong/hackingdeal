@@ -17,12 +17,12 @@ module.exports = {
                 </div>
             </header>
                 <form action="/create" method="post" class="create-container">
-                    <input class="create-input" type="text" name="title" placeholder="Title" />
-                    <input class="create-input" type="text" name="price" placeholder="Price" />
-                    <input class="create-input" type="text" name="img" placeholder="Image Url"/>
-                    <input class="create-input" type="text" name="url" placeholder="Purchase Link"/>
-                    <Textarea class="create-textarea" name="description" placeholder="Description"></Textarea>
-                    <input type="submit" value="submit" class="create-button" />
+                    <input class="create-input" type="text" name="title" placeholder="Title" required="required" />
+                    <input class="create-input" type="text" name="price" placeholder="Price" required="required" />
+                    <input class="create-input" type="text" name="img" placeholder="Image Url" required="required" />
+                    <input class="create-input" type="text" name="url" placeholder="Purchase Link" required="required" />
+                    <Textarea class="create-textarea" name="description" placeholder="Description" required="required"></Textarea>
+                    <input type="submit" value="submit" class="create-button"/>
                 </form>
                 </html>
             `;
