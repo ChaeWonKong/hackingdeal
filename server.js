@@ -25,6 +25,14 @@ app.get("/download", (req, res) => {
   res.download(path.join(__dirname + "/data/items.json"));
 });
 
+// Delete Data
+app.get("/delete", (req, res) => {
+  fs.readFile(path.join(__dirname + "/data/items.json"), (err, data) => {
+    if (err) throw err;
+    // 생각중
+  });
+});
+
 // Detail Route
 app.get("/:pageId", (req, res) => {
   fs.readFile(path.join(__dirname + "/data/items.json"), (err, data) => {
