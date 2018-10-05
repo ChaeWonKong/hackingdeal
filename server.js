@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Create Route
-app.get("/create", (req, res) => {
+app.get("/new", (req, res) => {
   const html = create.HTML();
   res.sendFile(path.join(__dirname, "/public"));
   res.send(html);
