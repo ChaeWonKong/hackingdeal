@@ -32,7 +32,13 @@ app.get("/delete/:pageId", (req, res) => {
     if (err) throw err;
     let DATA = JSON.parse(data).Deals;
     const targetIndex = _.indexOf(data, `${req.params.pageId}`);
-    // JSON에서 targetIndex를 삭제하는 기능 구현
+    DATA.splice(targetIndex, 1);
+    DATA = JSON.stringify({ Deals: DATA }, null, 3);
+
+    fs.writeFile(path.join(__dirname + "/data/items.json"), DATA, err => {
+      if (err) throw err;
+      res.redirect(302, "/");
+    });
   });
 });
 
@@ -42,7 +48,7 @@ app.get("/:pageId", (req, res) => {
     if (err) {
       throw err;
     } else {
-      const itemId = String(Number(req.params.pageId) - 1);
+      const itemId = req.params.pageId;
       const item = JSON.parse(data).Deals[itemId];
       if (item) {
         const html = detail.HTML(
