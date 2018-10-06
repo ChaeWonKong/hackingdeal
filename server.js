@@ -4,6 +4,7 @@ const fs = require("fs");
 const detail = require(path.join(__dirname, "/public/detail.js"));
 const index = require(path.join(__dirname, "/public/index.js"));
 const create = require(path.join(__dirname, "/public/create.js"));
+const del = require(path.join(__dirname, "/public/delete.js"));
 const bodyParser = require("body-parser");
 const _ = require("lodash");
 
@@ -26,7 +27,20 @@ app.get("/download", (req, res) => {
   res.download(path.join(__dirname + "/data/items.json"));
 });
 
-// Delete Data
+// Delete Data page
+app.get("/delete", (req, res) => {
+  fs.readFile(path.join(__dirname + "/data/items.json"), (err, data) => {
+    if (err) throw err;
+    else {
+      const items = JSON.parse(data).Deals;
+      const html = del.HTML(items);
+      res.sendFile(path.join(__dirname, "/public"));
+      res.send(html);
+    }
+  });
+});
+
+// Delete Data process
 app.get("/delete/:pageId", (req, res) => {
   fs.readFile(path.join(__dirname + "/data/items.json"), (err, data) => {
     if (err) throw err;
@@ -67,6 +81,7 @@ app.get("/:pageId", (req, res) => {
   });
 });
 
+// Create Process
 app.post("/create", (req, res) => {
   const body = req.body;
   const data = fs.readFile(
