@@ -21,6 +21,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "lodash": "^4.17.11",
     "nodemon": "^1.18.4",
     "truncate": "^2.0.1",
     "uuid": "^3.3.2",

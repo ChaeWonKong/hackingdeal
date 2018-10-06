@@ -5,6 +5,7 @@ const detail = require(path.join(__dirname, "/public/detail.js"));
 const index = require(path.join(__dirname, "/public/index.js"));
 const create = require(path.join(__dirname, "/public/create.js"));
 const bodyParser = require("body-parser");
+const _ = require("lodash");
 
 const app = express();
 
@@ -26,10 +27,12 @@ app.get("/download", (req, res) => {
 });
 
 // Delete Data
-app.get("/delete", (req, res) => {
+app.get("/delete/:pageId", (req, res) => {
   fs.readFile(path.join(__dirname + "/data/items.json"), (err, data) => {
     if (err) throw err;
-    // 생각중
+    let DATA = JSON.parse(data).Deals;
+    const targetIndex = _.indexOf(data, `${req.params.pageId}`);
+    // JSON에서 targetIndex를 삭제하는 기능 구현
   });
 });
 
@@ -67,8 +70,9 @@ app.post("/create", (req, res) => {
         throw err;
       }
       let DATA = JSON.parse(data).Deals;
+      const latestItem = DATA.length - 1;
       const newData = {
-        id: String(DATA.length),
+        id: String(Number(DATA[latestItem].id) + 1),
         title: body.title,
         price: body.price,
         img: body.img,
