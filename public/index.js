@@ -2,15 +2,14 @@ module.exports = {
   HTML: data => {
     const items = data
       .map(item => {
-        const itemId = String(Number(item.id) + 1);
         return `
             <div class="item">
                 <div class="item-img">
-                    <a href="/${itemId}">
+                    <a href="/${item.id}">
                     <img class="index-img" src="${item.img}" />
                     </a>
                 </div>
-                <a href="/${itemId}"><div class="item-text">
+                <a href="/${item.id}"><div class="item-text">
                     <p class="item-title">${item.title}</p>
                     <p class="item-price">${item.price}</p>
                 </div></a></div>`;
