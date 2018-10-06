@@ -14,18 +14,23 @@ a {
 
 .header {
     top: 0;
-    width: 100%;
+    left: 0;
+    right: 0;
     display: flex;
-    background: #bbb;
-    color: white;
+    padding: 20px 0 10px 0;
+    margin: 0 15px;
+    background: white;
+    border-bottom: 1px solid #bbb;
+    color: rgb(118, 113, 113);
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     position: fixed;
 }
 
-.header > h1 {
-    margin-left: 10px;
+.header-logo {
+    margin-left: 20px;
     font-size: 1.6rem;
+    font-weight: 300;
 }
 
 .header-right {
@@ -38,25 +43,42 @@ a {
 .header-ul {
     display: flex;
     list-style: none;
+    margin: 0 20px;
 }
 
 .header-li {
-    padding: 5px;
+    font-weight: 300;
+    padding: 10px;
     font-size: 1rem;
+    color: rgb(118, 113, 113);
 }
 
-.auth {
+.header-search-box {
+    border: 2px solid rgb(118, 113, 113);
     display: flex;
+    align-items: center;
+    height: 2rem;
+}
+
+.header-search {
+    border: none;
+    font-size: 1rem;
+    font-weight: 300;
 }
 
 .auth {
-    background: transparent;
+    background: rgb(118, 113, 113);
     color: white;
-    height: 2.4rem;
+    padding: 10px;
     font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid white;
     margin-left: 10px;
+    font-weight: 300;
+}
+
+#cart {
+    color: rgb(118, 113, 113);
+    font-size: 1.8rem;
+    margin: 0 10px;
 }
 
 .auth:hover {
@@ -74,25 +96,23 @@ a {
 }
 
 .item {
-    margin: 10px;
+    margin: 30px;
     width: 300px;
     background: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
 }
-
-
 
 .item-img {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 300px;
+    width: 300px;
+    border: 1px solid rgb(118, 113, 113) !important
 }
 
 .index-img {
-    max-height: 300px;
-    max-width: 300px;
+    max-height: 300.0px;
+    max-width: 300.0px;
 }
 
 
@@ -106,10 +126,14 @@ a {
 .item-title{
     font-size: 1rem;
     font-weight: bold;
+    margin: 0;
+    padding: 0;
 }
 
 .item-price {
     font-size: 1rem;
+    padding-top: 10px;
+    margin: 0;
     color: #EF4123;
 }
 
@@ -171,4 +195,8 @@ a {
 
 .create-button:hover {
     background: #bbb;
+}
+
+::placeholder {
+    color: #bbb;
 }

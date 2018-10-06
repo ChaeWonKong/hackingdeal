@@ -10,12 +10,11 @@ module.exports = {
                       </a>
                   </div>
                   <a href="/${item.id}"><div class="item-text">
-                      <p class="item-title">${item.title}</p>
-                      <p class="item-price">${item.price}</p>
-                  </a>
-                      <span><a href="/delete/${
+                      <p class="item-title">${item.title}</p></a>
+                      <span class="item-price">${item.price}</span>
+                      <span style="text-align: right"><a href="/delete/${
                         item.id
-                      }"><i class="fas fa-ban" style="color: orange"></i></a></span>
+                      }"><i class="far fa-trash-alt" style="color: orange"></i></a></span>
                   </div></div>`;
       })
       .join("");
@@ -29,7 +28,7 @@ module.exports = {
       <title>Monster Deals</title>
   
       
-      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
       <link rel="stylesheet" href="./main.css" />
   
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -37,23 +36,27 @@ module.exports = {
   
   </head>
   <body>
-      <header class="header">
-          <h1 class="header-h1"><a href="/">MonsterDeal</a></h1>
-          <div class="header-right">
-          <ul class="header-ul">
-              <li class="header-li">category1</li>
-              <li class="header-li">category2</li>
-              <li class="header-li">category3</li>
-              <li class="header-li">category4</li>
-              <li class="header-li">category5</li>
-          </ul>
-              <button class="auth">Sign In/Up</button>
-          </div>
-      </header>
-      <div class="container">
-          ${items}
-      </div>
-      </body>
+    <header class="header">
+    <a href="/" class="header-logo">Monsterdeals</a>
+        <div class="header-right">
+        <ul class="header-ul">
+            <li class="header-li">HOME</li>
+            <li class="header-li">카테고리</li>
+            <li class="header-li">내게맞는상품</li>
+            <li class="header-li">상품등록</li>
+            <li class="header-li">구매가이드</li>
+        </ul>
+        <div class="header-search-box">
+          <i class="fas fa-search" style="margin: 0 10px"></i>
+          <input class="header-search" type="text" placeholder="search"></input>
+        </div>
+            <button class="auth">Sign In/Up</button>
+            <i id="cart"class="fas fa-shopping-cart"></i>
+    </header>
+    <div class="container">
+        ${items}
+    </div>
+    </body>
             `;
   }
 };

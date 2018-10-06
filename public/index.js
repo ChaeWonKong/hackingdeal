@@ -25,7 +25,7 @@ module.exports = {
     <title>Monster Deals</title>
 
     
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
     <link rel="stylesheet" href="./main.css" />
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -34,17 +34,21 @@ module.exports = {
 </head>
 <body>
     <header class="header">
-        <h1 class="header-h1"><a href="/">MonsterDeal</a></h1>
+    <a href="/" class="header-logo">Monsterdeals</a>
         <div class="header-right">
         <ul class="header-ul">
-            <li class="header-li">category1</li>
-            <li class="header-li">category2</li>
-            <li class="header-li">category3</li>
-            <li class="header-li">category4</li>
-            <li class="header-li">category5</li>
+            <li class="header-li">HOME</li>
+            <li class="header-li">카테고리</li>
+            <li class="header-li">내게맞는상품</li>
+            <li class="header-li">상품등록</li>
+            <li class="header-li">구매가이드</li>
         </ul>
-            <button class="auth">Sign In/Up</button>
+        <div class="header-search-box">
+          <i class="fas fa-search" style="margin: 0 10px"></i>
+          <input class="header-search" type="text" placeholder="search"></input>
         </div>
+            <button class="auth">Sign In/Up</button>
+            <i id="cart"class="fas fa-shopping-cart"></i>
     </header>
     <div class="container">
         ${items}
