@@ -45,13 +45,17 @@ app.get("/delete/:pageId", (req, res) => {
   fs.readFile(path.join(__dirname + "/data/items.json"), (err, data) => {
     if (err) throw err;
     let DATA = JSON.parse(data).Deals;
-    const targetIndex = _.indexOf(data, `${req.params.pageId}`);
+    const targetIndex = _.indexOf(
+      DATA,
+      _.find(DATA, { id: req.params.pageId })
+    );
+
     DATA.splice(targetIndex, 1);
     DATA = JSON.stringify({ Deals: DATA }, null, 3);
 
     fs.writeFile(path.join(__dirname + "/data/items.json"), DATA, err => {
       if (err) throw err;
-      res.redirect(302, "/");
+      res.redirect(302, "/delete");
     });
   });
 });
@@ -107,7 +111,7 @@ app.post("/create", (req, res) => {
         if (err) {
           throw err;
         }
-        res.redirect(302, "/");
+        res.redirect(302, "/new");
       });
     }
   );
