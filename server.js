@@ -59,11 +59,14 @@ app.get("/delete/:pageId", (req, res) => {
 // Detail Route
 app.get("/:pageId", (req, res) => {
   fs.readFile(path.join(__dirname + "/data/items.json"), (err, data) => {
-    if (err) {
-      throw err;
-    } else {
-      const itemId = req.params.pageId;
-      const item = JSON.parse(data).Deals[itemId];
+    if (err) throw err;
+    else {
+      const DATA = JSON.parse(data).Deals;
+      const targetIndex = _.indexOf(
+        DATA,
+        _.find(DATA, { id: req.params.pageId })
+      );
+      const item = DATA[targetIndex];
       if (item) {
         const html = template.detail(
           item.title,
