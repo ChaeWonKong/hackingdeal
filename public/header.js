@@ -13,7 +13,6 @@ module.exports = `
                         <a href="/" class="header-logo">Monsterdeals</a>
                             <div class="header-right">
                                 <ul class="header-ul">
-                                    <li class="header-li">HOME</li>
                                     <li class="header-li">카테고리</li>
                                     <li class="header-li">내게맞는상품</li>
                                     <li class="header-li">상품등록</li>
