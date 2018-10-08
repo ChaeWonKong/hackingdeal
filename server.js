@@ -22,9 +22,9 @@ app.get("/new", (req, res) => {
   res.send(html);
 });
 
-// Download data
-app.get("/download", (req, res) => {
-  res.download(path.join(__dirname + "/data/items.json"));
+// data page
+app.get("/data", (req, res) => {
+  res.sendFile(path.join(__dirname + "/data/items.json"));
 });
 
 // Delete Data page
