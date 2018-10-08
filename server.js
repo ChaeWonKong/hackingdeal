@@ -1,10 +1,6 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
-// const detail = require(path.join(__dirname, "/public/detail.js"));
-// const index = require(path.join(__dirname, "/public/index.js"));
-// const create = require(path.join(__dirname, "/public/create.js"));
-// const del = require(path.join(__dirname, "/public/delete.js"));
 const template = require("./public/template");
 const bodyParser = require("body-parser");
 const _ = require("lodash");
@@ -12,7 +8,6 @@ const _ = require("lodash");
 const app = express();
 
 app.use(express.static(path.join(__dirname, "/public")));
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
