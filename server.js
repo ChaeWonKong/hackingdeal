@@ -1,10 +1,11 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
-const detail = require(path.join(__dirname, "/public/detail.js"));
-const index = require(path.join(__dirname, "/public/index.js"));
-const create = require(path.join(__dirname, "/public/create.js"));
-const del = require(path.join(__dirname, "/public/delete.js"));
+// const detail = require(path.join(__dirname, "/public/detail.js"));
+// const index = require(path.join(__dirname, "/public/index.js"));
+// const create = require(path.join(__dirname, "/public/create.js"));
+// const del = require(path.join(__dirname, "/public/delete.js"));
+const template = require("./public/template");
 const bodyParser = require("body-parser");
 const _ = require("lodash");
 
@@ -17,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Create Route
 app.get("/new", (req, res) => {
-  const html = create.HTML();
+  const html = template.create();
   res.sendFile(path.join(__dirname, "/public"));
   res.send(html);
 });
@@ -33,7 +34,7 @@ app.get("/delete", (req, res) => {
     if (err) throw err;
     else {
       const items = JSON.parse(data).Deals;
-      const html = del.HTML(items);
+      const html = template.delete(items);
       res.sendFile(path.join(__dirname, "/public"));
       res.send(html);
     }
@@ -69,7 +70,7 @@ app.get("/:pageId", (req, res) => {
       const itemId = req.params.pageId;
       const item = JSON.parse(data).Deals[itemId];
       if (item) {
-        const html = detail.HTML(
+        const html = template.detail(
           item.title,
           item.price,
           item.img,
@@ -124,7 +125,7 @@ app.get("/", (req, res) => {
       throw err;
     } else {
       const items = JSON.parse(data).Deals;
-      const html = index.HTML(items);
+      const html = template.index(items);
       res.sendFile(path.join(__dirname, "/public"));
       res.send(html);
     }
