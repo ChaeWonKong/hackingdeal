@@ -5,12 +5,12 @@ module.exports = `
                 <link rel="stylesheet" href="./main.css" />
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-                <title>Monster Deals</title>
+                <title>ShockingDeal</title>
                 </head>
                 <body>
 
                     <header class="header">
-                        <a href="/" class="header-logo">Monsterdeals</a>
+                        <a href="/" class="header-logo">ShockingDeal</a>
                             <div class="header-right">
                                 <ul class="header-ul">
                                     <li class="header-li">카테고리</li>
