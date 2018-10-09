@@ -14,8 +14,8 @@ module.exports = `
                             <div class="header-right">
                                 <ul class="header-ul">
                                     <li class="header-li">카테고리</li>
-                                    <li class="header-li">내게맞는상품</li>
-                                    <li class="header-li">상품등록</li>
+                                    <li class="header-li">스테디셀러</li>
+                                    <li class="header-li">합배송상품</li>
                                     <li class="header-li">구매가이드</li>
                                 </ul>
                                 <div class="header-search-box">
