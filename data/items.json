@@ -1,14 +1,6 @@
 {
    "Deals": [
       {
-         "id": "1",
-         "title": "Costco Members: 75\" Vizio P75-F 4K UHD HDR Smart LED TV",
-         "price": "$1800",
-         "img": "https://static.slickdealscdn.com/attachment/4/8/2/3/7/7/7409752.attach",
-         "description": "Specs\r\nResolution: 3840x2160\r\nRefresh Rate: 240Hz (Effective)\r\nDolby Vision, HDR10, HLG, Google Chromecast built-in + WiFi\r\nInputs\r\n5x HDMI\r\n1x A/V (Composite)\r\n1x Component\r\n1x USB\r\n1x Ethernet\r\n1x Digital Optical Audio",
-         "url": "https://slickdeals.net/?adobeRef=95808960c99211e8a9779a5345c674ba0001&afsrc=1&trd=See%20Deal&sdtid=12106570&tid=12106570&pno=424543&sdtrk=frontpage&pv=9583e5f6c99211e8a9779a5345c674ba&au=90462a76759211e88dec32fabf77f97d"
-      },
-      {
          "id": "2",
          "title": "Massdrop Sennheiser HD 6XX Headphones",
          "price": "$200",
@@ -23,14 +15,6 @@
          "img": "https://static.slickdealscdn.com/attachment/5/1/4/8/2/1/3/7408570.attach",
          "description": "EVGA GeForce GTX 1060 6GB + EVGA 600W BR Power Supply",
          "url": "https://slickdeals.net/?adobeRef=d64fc780c99211e8834726cbd3c933ad0001&afsrc=1&trd=See%20Deal&sdtid=12104038&tid=12104038&pno=424534&sdtrk=frontpage&pv=d653397ec99211e8834726cbd3c933ad&au=90462a76759211e88dec32fabf77f97d"
-      },
-      {
-         "id": "4",
-         "title": "Converse Chuck Taylor Men's All Star Street Mid Top Sneaker",
-         "price": "$30",
-         "img": "https://static.slickdealscdn.com/attachment/4/7/6/0/3/7407562.attach",
-         "description": "Available Colors:\r\nBlack/White/Gum $33.74\r\nNavy/White/Gum $33.74\r\nGrey/White/Gum $33.74",
-         "url": "https://slickdeals.net/?adobeRef=fde32a9ec99211e888614a71662b62f70001&afsrc=1&trd=See%20Deal&sdtid=12106204&tid=12106204&pno=424525&sdtrk=frontpage&pv=fde6d66cc99211e888614a71662b62f7&au=90462a76759211e88dec32fabf77f97d"
       },
       {
          "id": "5",
