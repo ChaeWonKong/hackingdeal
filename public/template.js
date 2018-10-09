@@ -79,17 +79,61 @@ module.exports = {
                 `;
   },
   detail: (title, price, img, description, url) => {
-    return ` ${header}
-                <div class="item-detail">
-                    <h1>${title}</h1>
-                    <h2>${price}</h2>
-                    <img src="${img}" width="300px" />
-                    <p>${description}</p>
-                    <button class="item-buy">
-                    <a href="${url}">Buy</a></button>
+    return `
+    ${header}
+    <div class="container">
+        <div class="detail-contaienr">
+            <div class="detail-header">
+                <h4 class="detail-category">CATEGORY > CATEGORY</h4>
+                <hr class="detail-hr"/>
+                <h2 class="detail-h2">${title}</h2>
+            </div>
+            <div class="detail-conA">
+                <div class="detail-img"><img class="detail-main-img" src="${img}" /></div>
+                <div class="detail-shopInfo">
+                    <div class="detail-price-box">
+                        <p class="price-ratio">10%</p>
+                        <p class="price">${price}</p>
+                        <p class="time-elapse">38mins ago</p>
+                    </div>
+                    <table class="detail-table">
+                        <tr>
+                            <th>타입</th>
+                            <th>가격</th>
+                            <th>기준일</th>
+                        </tr>
+                        <tr>
+                            <td>최고가</td>
+                            <td>b</td>
+                            <td>c</td>
+                        </tr>
+                        <tr>
+                            <td>평균가</td>
+                            <td>b</td>
+                            <td>c</td>
+                        </tr>
+                    </table>
+                    <ul>
+                        <li>구매방법</li>
+                        <li>구매방법</li>
+                        <li>구매방법</li>
+                        <li>구매방법</li>
+                    </ul>
+                    <div class="btn-buy-container">
+                        <a href="${url}">
+                        <button class="btn-buy">Shop Now</button>
+                        </a>
+                    </div>
                 </div>
-            </body>
-            </html>
+            </div>
+            <hr class="detail-hr"/>
+            <div class="detail-conB">
+                ${description}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
                 `;
   }
 };
