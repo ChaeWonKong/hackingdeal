@@ -84,6 +84,7 @@ a {
 .auth:hover {
     background: #337ab7;
     transition: all .1s ease-in-out;
+    cursor: pointer;
 }
 
 
@@ -254,6 +255,7 @@ a {
     border: 1px solid rgb(253, 207, 0);
     color: white;
     transition: all .1s ease-in-out;
+    cursor: pointer;
 }
 
 
@@ -295,6 +297,7 @@ a {
 
 .create-button:hover {
     background: #bbb;
+    cursor: pointer;
 }
 
 ::placeholder {
