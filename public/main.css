@@ -17,6 +17,7 @@ a {
     left: 0;
     right: 0;
     display: flex;
+    flex-wrap: wrap;
     padding: 20px 0 10px 0;
     margin: 0 15px;
     background: white;
@@ -36,6 +37,7 @@ a {
 
 .header-right {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     margin-right: 10px;
@@ -43,6 +45,7 @@ a {
 
 .header-ul {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     margin: 0 20px;
 }
