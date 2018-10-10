@@ -103,7 +103,7 @@ module.exports = {
                             <th>기준일</th>
                         </tr>
                         <tr>
-                            <td>최고가</td>
+                            <td>최저가</td>
                             <td>b</td>
                             <td>c</td>
                         </tr>
@@ -114,10 +114,10 @@ module.exports = {
                         </tr>
                     </table>
                     <ul>
-                        <li>구매방법</li>
-                        <li>구매방법</li>
-                        <li>구매방법</li>
-                        <li>구매방법</li>
+                        <li>상품요약</li>
+                        <li>상품요약</li>
+                        <li>상품요약</li>
+                        <li>상품요약</li>
                     </ul>
                     <div class="btn-buy-container">
                         <a href="${url}">
