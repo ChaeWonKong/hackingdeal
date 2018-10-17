@@ -4,7 +4,6 @@ const fs = require("fs");
 const template = require("./public/template");
 const bodyParser = require("body-parser");
 const _ = require("lodash");
-const csv = require("csvtojson");
 
 // Image Upload
 const multer = require("multer");
@@ -87,10 +86,6 @@ app.get("/delete/:pageId", (req, res) => {
       DATA,
       _.find(DATA, { id: req.params.pageId })
     );
-    fs.unlink(path.join(__dirname + DATA[targetIndex].img), err => {
-      if (err) throw err;
-      console.log("Successfully deleted image");
-    });
     DATA.splice(targetIndex, 1);
     DATA = JSON.stringify({ Deals: DATA }, null, 3);
 
@@ -175,12 +170,6 @@ app.get("/", (req, res) => {
       res.send(html);
     }
   });
-  //   const csvFilePath = "./data/db.csv";
-  //   csv()
-  //     .fromFile(csvFilePath)
-  //     .then(jsonObj => {
-  //       res.send(jsonObj);
-  //     });
 });
 
 app.listen(3000, () => console.log("running"));
