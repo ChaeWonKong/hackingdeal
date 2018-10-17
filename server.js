@@ -20,12 +20,12 @@ app.get("/new", (req, res) => {
 
 // data page
 app.get("/data", (req, res) => {
-  res.sendFile(path.join(__dirname + "/data/items.json"));
+  res.sendFile(path.join(__dirname + "/data/db.json"));
 });
 
 // Delete Data page
 app.get("/delete", (req, res) => {
-  fs.readFile(path.join(__dirname + "/data/items.json"), (err, data) => {
+  fs.readFile(path.join(__dirname + "/data/db.json"), (err, data) => {
     if (err) throw err;
     else {
       const items = JSON.parse(data).Deals;
@@ -38,7 +38,7 @@ app.get("/delete", (req, res) => {
 
 // Delete Data process
 app.get("/delete/:pageId", (req, res) => {
-  fs.readFile(path.join(__dirname + "/data/items.json"), (err, data) => {
+  fs.readFile(path.join(__dirname + "/data/db.json"), (err, data) => {
     if (err) throw err;
     let DATA = JSON.parse(data).Deals;
     const targetIndex = _.indexOf(
@@ -49,7 +49,7 @@ app.get("/delete/:pageId", (req, res) => {
     DATA.splice(targetIndex, 1);
     DATA = JSON.stringify({ Deals: DATA }, null, 3);
 
-    fs.writeFile(path.join(__dirname + "/data/items.json"), DATA, err => {
+    fs.writeFile(path.join(__dirname + "/data/db.json"), DATA, err => {
       if (err) throw err;
       res.redirect(302, "/delete");
     });
@@ -58,7 +58,7 @@ app.get("/delete/:pageId", (req, res) => {
 
 // Detail Route
 app.get("/:pageId", (req, res) => {
-  fs.readFile(path.join(__dirname + "/data/items.json"), (err, data) => {
+  fs.readFile(path.join(__dirname + "/data/db.json"), (err, data) => {
     if (err) throw err;
     else {
       const DATA = JSON.parse(data).Deals;
@@ -88,7 +88,7 @@ app.get("/:pageId", (req, res) => {
 app.post("/create", (req, res) => {
   const body = req.body;
   const data = fs.readFile(
-    path.join(__dirname + "/data/items.json"),
+    path.join(__dirname + "/data/db.json"),
     (err, data) => {
       if (err) {
         throw err;
@@ -106,7 +106,7 @@ app.post("/create", (req, res) => {
       DATA.push(newData);
       DATA = JSON.stringify({ Deals: DATA }, null, 3);
 
-      fs.writeFile(path.join(__dirname + "/data/items.json"), DATA, err => {
+      fs.writeFile(path.join(__dirname + "/data/db.json"), DATA, err => {
         if (err) {
           throw err;
         }
@@ -118,7 +118,7 @@ app.post("/create", (req, res) => {
 
 // Base Route
 app.get("/", (req, res) => {
-  fs.readFile(path.join(__dirname + "/data/items.json"), (err, data) => {
+  fs.readFile(path.join(__dirname + "/data/db.json"), (err, data) => {
     if (err) {
       throw err;
     } else {
