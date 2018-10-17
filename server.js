@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const _ = require("lodash");
 const csv = require("csvtojson");
 
+// Image Upload
 const multer = require("multer");
 const upload = multer({
   storage: multer.diskStorage({
@@ -48,6 +49,7 @@ app.get("/uploadimage", (req, res) => {
 
 // Image Upload Process
 app.post("/uploadimage", upload.single("img"), (req, res) => {
+  state.image = req.file.path;
   res.send(
     `
     <html>
