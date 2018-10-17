@@ -89,7 +89,7 @@ module.exports = {
                 <h2 class="detail-h2">${title}</h2>
             </div>
             <div class="detail-conA">
-                <div class="detail-img"><img class="detail-main-img" src="${img}" /></div>
+                <div class="detail-img"><img class="materialboxed detail-main-img" src="${img}" /></div>
                 <div class="detail-shopInfo">
                     <div class="detail-price-box">
                         <p class="price-ratio">10%</p>
