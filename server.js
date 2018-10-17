@@ -5,12 +5,24 @@ const template = require("./public/template");
 const bodyParser = require("body-parser");
 const _ = require("lodash");
 const csv = require("csvtojson");
+const multer = require("multer");
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, "uploads/");
+    },
+    filename: (req, file, cb) => {
+      cb(null, new Date().valueOf() + path.extname(file.originalname));
+    }
+  })
+});
 
 const app = express();
 
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/uploads", express.static("uploads"));
 
 // Create Route
 app.get("/new", (req, res) => {
@@ -88,7 +100,7 @@ app.get("/:pageId", (req, res) => {
 });
 
 // Create Process
-app.post("/create", (req, res) => {
+app.post("/create", upload.single("img"), (req, res) => {
   const body = req.body;
   const data = fs.readFile(
     path.join(__dirname + "/data/db.json"),
