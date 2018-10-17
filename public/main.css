@@ -288,6 +288,7 @@ a {
 
 .create-textarea {
     width: 1000px;
+    height: 500px;
     margin-bottom: 1rem;
     font-size: 1rem;
 }

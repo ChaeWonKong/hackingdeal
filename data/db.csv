@@ -1,0 +1,5 @@
+Key,제품명,딜가격,이미지 주소,구매 링크,게시 DATE,카테고리,만료시간,쿠폰코드,판매국 내 배송비,페이지 뷰 수(클릭수),딜 만료 여부,6개월 내 최저가,6개월 내 평균가,원래 가격,국제 배송 유무,구매정보,제품정보,국가,메인페이지,스테디셀러,합배송,중요도,관부가세 포함여부,FinalPrice,총  수기 입력 개수
+데이터 타입,String,Number,String,String,Date,String,Date,String,0 => Free / else: Number,Number,Bool,Number,Number,Number,Bool,String,String,String / input type select,Bool,Bool,Bool,Number,Bool,Number,
+수기 입력 여부,1,1,1,1,0,1,0,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,19
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,GAP 남여 퀼트 조끼,19.99,,,,,,,,,,,,,,,,,,,,,,,
