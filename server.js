@@ -48,7 +48,15 @@ app.get("/uploadimage", (req, res) => {
 
 // Image Upload Process
 app.post("/uploadimage", upload.single("img"), (req, res) => {
-  res.send(req.file.path);
+  res.send(
+    `
+    <html>
+      <body>
+        <p>${req.file.path}</p>
+        <button onClick="window.close()">Close</button>
+      </body>
+    </html>`
+  );
 });
 
 // data page
