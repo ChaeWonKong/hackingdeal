@@ -23,7 +23,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Create Route
 app.get("/new", (req, res) => {
@@ -48,7 +48,7 @@ app.get("/uploadimage", (req, res) => {
 
 // Image Upload Process
 app.post("/uploadimage", upload.single("img"), (req, res) => {
-  res.send("http://hackingdeal.com/" + req.file.path);
+  res.send(req.file.path);
 });
 
 // data page
