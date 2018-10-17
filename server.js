@@ -4,7 +4,6 @@ const fs = require("fs");
 const template = require("./public/template");
 const bodyParser = require("body-parser");
 const _ = require("lodash");
-const csv = require("csvtojson");
 
 // Image Upload
 const multer = require("multer");
@@ -175,12 +174,6 @@ app.get("/", (req, res) => {
       res.send(html);
     }
   });
-  //   const csvFilePath = "./data/db.csv";
-  //   csv()
-  //     .fromFile(csvFilePath)
-  //     .then(jsonObj => {
-  //       res.send(jsonObj);
-  //     });
 });
 
 app.listen(3000, () => console.log("running"));
