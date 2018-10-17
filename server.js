@@ -86,10 +86,7 @@ app.get("/delete/:pageId", (req, res) => {
       DATA,
       _.find(DATA, { id: req.params.pageId })
     );
-    fs.unlink(path.join(__dirname + DATA[targetIndex].img), err => {
-      if (err) throw err;
-      console.log("Successfully deleted image");
-    });
+
     DATA.splice(targetIndex, 1);
     DATA = JSON.stringify({ Deals: DATA }, null, 3);
 
