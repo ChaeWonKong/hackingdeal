@@ -57,6 +57,8 @@ app.get("/delete/:pageId", (req, res) => {
   });
 });
 
+// Update Route
+
 // Detail Route
 app.get("/:pageId", (req, res) => {
   fs.readFile(path.join(__dirname + "/data/db.json"), (err, data) => {

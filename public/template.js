@@ -4,10 +4,11 @@ module.exports = {
   create: () => {
     return `
             ${header}
-                <form action="/create" method="post" class="create-container">
+                <form action="/create" method="post" class="create-container" enctype="multipart/form-data">
                     <input class="create-input" type="text" name="title" placeholder="Title" required="required" />
                     <input class="create-input" type="text" name="price" placeholder="Price" required="required" />
                     <input class="create-input" type="text" name="img" placeholder="Image Url" required="required" />
+                    <input type='file' name='userflie' />
                     <input class="create-input" type="text" name="url" placeholder="Purchase Link" required="required" />
                     <Textarea class="create-textarea" name="description" placeholder="Description" required="required"></Textarea>
                     <input type="submit" value="submit" class="create-button"/>
