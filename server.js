@@ -49,7 +49,6 @@ app.get("/uploadimage", (req, res) => {
 
 // Image Upload Process
 app.post("/uploadimage", upload.single("img"), (req, res) => {
-  state.image = req.file.path;
   res.send(
     `
     <html>
