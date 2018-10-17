@@ -5,6 +5,7 @@ const template = require("./public/template");
 const bodyParser = require("body-parser");
 const _ = require("lodash");
 const csv = require("csvtojson");
+
 const multer = require("multer");
 const upload = multer({
   storage: multer.diskStorage({
@@ -29,6 +30,25 @@ app.get("/new", (req, res) => {
   const html = template.create();
   res.sendFile(path.join(__dirname, "/public"));
   res.send(html);
+});
+
+// Image Upload Route
+app.get("/uploadimage", (req, res) => {
+  const uploadImage = `
+  <html>
+  <form action="/uploadimage" method="post" enctype="multipart/form-data">
+    <input type="file" name="img" />
+    <button type="submit">Submit Image</button>
+  </form>
+  </html>
+  `;
+
+  res.send(uploadImage);
+});
+
+// Image Upload Process
+app.post("/uploadimage", upload.single("img"), (req, res) => {
+  res.send("http://hackingdeal.com/" + req.file.path);
 });
 
 // data page
@@ -100,7 +120,7 @@ app.get("/:pageId", (req, res) => {
 });
 
 // Create Process
-app.post("/create", upload.single("img"), (req, res) => {
+app.post("/create", (req, res) => {
   const body = req.body;
   const data = fs.readFile(
     path.join(__dirname + "/data/db.json"),
@@ -125,7 +145,7 @@ app.post("/create", upload.single("img"), (req, res) => {
         if (err) {
           throw err;
         }
-        res.redirect(302, "/new");
+        res.redirect(302, "/");
       });
     }
   );
