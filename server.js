@@ -103,6 +103,7 @@ app.get("/:pageId", (req, res) => {
 // Create Process
 app.post("/create", upload.single("uploaded"), (req, res) => {
   const body = req.body;
+  console.log(req);
   const data = fs.readFile(
     path.join(__dirname + "/data/db.json"),
     (err, data) => {
@@ -111,7 +112,7 @@ app.post("/create", upload.single("uploaded"), (req, res) => {
       }
       let DATA = JSON.parse(data).Deals;
       const latestItem = DATA.length - 1;
-      const image = req.path.data ? req.path.data : body.img;
+      const image = req.file.path ? req.file.path : body.img;
       const newData = {
         id: String(Number(DATA[latestItem].id) + 1),
         title: body.title,
