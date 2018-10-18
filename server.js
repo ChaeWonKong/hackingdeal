@@ -59,7 +59,6 @@ app.get("/delete/:pageId", (req, res) => {
       DATA,
       _.find(DATA, { id: req.params.pageId })
     );
-
     DATA.splice(targetIndex, 1);
     DATA = JSON.stringify({ Deals: DATA }, null, 3);
 
