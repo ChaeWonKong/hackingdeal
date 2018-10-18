@@ -6,7 +6,13 @@
          "price": "$2.80",
          "img": "https://static.slickdealscdn.com/attachment/3/5/9/4/0/2/8/7382851.attach",
          "description": "Caseology Wavelength Series Case for iPhone XR (various colors)",
-         "url": "https://slickdeals.net/f/12079715-80-off-code-for-caseology-for-iphone-xr-case-wavelength-series-free-shipping-2-8?src=frontpage"
+         "url": "https://slickdeals.net/f/12079715-80-off-code-for-caseology-for-iphone-xr-case-wavelength-series-free-shipping-2-8?src=frontpage",
+         "comment" : [
+             {
+                 "commentId": "", 
+                 "content": ""
+                 }
+                ]
       },
       {
          "id": "20",
@@ -14,7 +20,13 @@
          "price": "500 Internal Server Error",
          "img": "uploads/1539846366200.png",
          "description": "500 Internal Server Error",
-         "url": "500 Internal Server Error"
+         "url": "500 Internal Server Error",
+         "comment" : [
+            {
+                "commentId": "", 
+                "content": ""
+                }
+               ]
       }
    ]
 }
