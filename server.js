@@ -88,7 +88,8 @@ app.get("/:pageId", (req, res) => {
           item.price,
           item.img,
           item.description,
-          item.url
+          item.url,
+          item.comments
         );
         res.sendFile(path.join(__dirname, "/public"));
         res.send(html);
@@ -117,7 +118,8 @@ app.post("/create", upload.single("uploaded"), (req, res) => {
         price: body.price,
         img: image,
         description: body.description,
-        url: body.url
+        url: body.url,
+        comment: []
       };
       DATA.push(newData);
       DATA = JSON.stringify({ Deals: DATA }, null, 3);

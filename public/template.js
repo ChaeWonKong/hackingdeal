@@ -1,5 +1,5 @@
 const header = require("./header");
-const comment = require("./comment");
+const commentHTML = require("./comment");
 
 module.exports = {
   create: () => {
@@ -80,7 +80,20 @@ module.exports = {
         </html>
                 `;
   },
-  detail: (title, price, img, description, url) => {
+  detail: (title, price, img, description, url, comments) => {
+    const commentItem = comments
+      ? comments
+          .map(comment => {
+            return `
+        <div class="comment">
+        <p class="comment-name">${comment.nickName}</p>
+        <p class="comment-content">${comment.content}</p>
+        </div>
+        `;
+          })
+          .join("")
+      : "";
+
     return `
     ${header}
     <div class="container">
@@ -132,7 +145,10 @@ module.exports = {
             <div class="detail-conB">
                 ${description}
             </div>
-            ${comment}
+            <div class="comment-container">
+            ${commentItem}
+            </div>
+            ${commentHTML}
         </div>
     </div>
 </body>

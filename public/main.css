@@ -271,6 +271,27 @@ a {
     text-align: justify;
 }
 
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.comment {
+    width: 1200px;
+}
+
+.comment-name {
+    font-weight: 700;
+}
+
+.comment-content {
+    font-weight: 400;
+    color: hsl(0, 0%, 23%)
+}
+
 /* Create Data */
 .create-container {
     margin-top: 100px;
@@ -281,13 +302,13 @@ a {
 }
 
 .create-input {
-    width: 1000px;
+    width: 1200px;
     margin-bottom: 1rem;
     font-size: 1rem;
 }
 
 .create-textarea {
-    width: 1000px;
+    width: 1200px;
     height: 500px;
     margin-bottom: 1rem;
     font-size: 1rem;
