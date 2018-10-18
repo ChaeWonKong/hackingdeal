@@ -32,33 +32,6 @@ app.get("/new", (req, res) => {
   res.send(html);
 });
 
-// Image Upload Route
-app.get("/uploadimage", (req, res) => {
-  const uploadImage = `
-  <html>
-  <form action="/uploadimage" method="post" enctype="multipart/form-data">
-    <input type="file" name="img" />
-    <button type="submit">Submit Image</button>
-  </form>
-  </html>
-  `;
-
-  res.send(uploadImage);
-});
-
-// Image Upload Process
-app.post("/uploadimage", upload.single("img"), (req, res) => {
-  res.send(
-    `
-    <html>
-      <body>
-        <p>${req.file.path}</p>
-        <button onClick="window.close()">Close</button>
-      </body>
-    </html>`
-  );
-});
-
 // data page
 app.get("/data", (req, res) => {
   res.sendFile(path.join(__dirname + "/data/db.json"));
@@ -128,7 +101,7 @@ app.get("/:pageId", (req, res) => {
 });
 
 // Create Process
-app.post("/create", (req, res) => {
+app.post("/create", upload.single("uploaded"), (req, res) => {
   const body = req.body;
   const data = fs.readFile(
     path.join(__dirname + "/data/db.json"),
@@ -142,7 +115,7 @@ app.post("/create", (req, res) => {
         id: String(Number(DATA[latestItem].id) + 1),
         title: body.title,
         price: body.price,
-        img: body.img,
+        img: req.file.path ? req.file.path : body.img,
         description: body.description,
         url: body.url
       };
