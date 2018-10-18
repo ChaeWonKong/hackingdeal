@@ -1,4 +1,5 @@
 const header = require("./header");
+const comment = require("./comment");
 
 module.exports = {
   create: () => {
@@ -131,7 +132,7 @@ module.exports = {
             <div class="detail-conB">
                 ${description}
             </div>
-            <div id="disqus_thread"></div>
+            ${comment}
         </div>
     </div>
 </body>
