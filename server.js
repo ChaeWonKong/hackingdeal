@@ -111,11 +111,12 @@ app.post("/create", upload.single("uploaded"), (req, res) => {
       }
       let DATA = JSON.parse(data).Deals;
       const latestItem = DATA.length - 1;
+      const image = req.path.data ? req.path.data : body.img;
       const newData = {
         id: String(Number(DATA[latestItem].id) + 1),
         title: body.title,
         price: body.price,
-        img: req.file.path ? req.file.path : body.img,
+        img: image,
         description: body.description,
         url: body.url
       };
