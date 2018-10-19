@@ -134,5 +134,5 @@ typings/
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 
-# Ignore Directories
-uploads/
+# Ignore awsconfig.json
+config/awsconfig.json

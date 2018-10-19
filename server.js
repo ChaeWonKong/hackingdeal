@@ -4,10 +4,14 @@ const fs = require("fs");
 const template = require("./public/template");
 const bodyParser = require("body-parser");
 const _ = require("lodash");
-const aws = require("aws-sdk");
 
 // Image Upload
+const AWS = require("aws-sdk");
+AWS.config.loadFromPath(__dirname + "/../config/awsconfig.json");
+const s3 = new AWS.s3();
+
 const multer = require("multer");
+const multerS3 = require("multer-s3");
 // const upload = multer({
 //   storage: multer.diskStorage({
 //     destination: (req, file, cb) => {
@@ -20,7 +24,14 @@ const multer = require("multer");
 // });
 
 const upload = multer({
-  storage: multer.memoryStorage()
+  storage: multerS3({
+    s3,
+    bucket: "hackingdeal",
+    key: (req, file, cb) => {
+      cb(null, new Date().valueOf() + path.extname(file.originalname));
+      acl: "public-read-write";
+    }
+  })
 });
 
 const app = express();
