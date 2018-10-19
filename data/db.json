@@ -46,7 +46,13 @@
          "img": "uploads/1539930815918.png",
          "description": "test",
          "url": "test",
-         "comments": []
+         "comments": [
+            {
+               "id": 0,
+               "nickName": "상산조자룡",
+               "content": "나는 상산의 조자룡이라 하오."
+            }
+         ]
       }
    ]
 }
