@@ -4,18 +4,23 @@ const fs = require("fs");
 const template = require("./public/template");
 const bodyParser = require("body-parser");
 const _ = require("lodash");
+const aws = require("aws-sdk");
 
 // Image Upload
 const multer = require("multer");
+// const upload = multer({
+//   storage: multer.diskStorage({
+//     destination: (req, file, cb) => {
+//       cb(null, "uploads/");
+//     },
+//     filename: (req, file, cb) => {
+//       cb(null, new Date().valueOf() + path.extname(file.originalname));
+//     }
+//   })
+// });
+
 const upload = multer({
-  storage: multer.diskStorage({
-    destination: (req, file, cb) => {
-      cb(null, "uploads/");
-    },
-    filename: (req, file, cb) => {
-      cb(null, new Date().valueOf() + path.extname(file.originalname));
-    }
-  })
+  storage: multer.memoryStorage()
 });
 
 const app = express();
