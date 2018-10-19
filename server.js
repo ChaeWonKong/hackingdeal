@@ -12,16 +12,6 @@ const s3 = new AWS.S3();
 
 const multer = require("multer");
 const multerS3 = require("multer-s3");
-// const upload = multer({
-//   storage: multer.diskStorage({
-//     destination: (req, file, cb) => {
-//       cb(null, "uploads/");
-//     },
-//     filename: (req, file, cb) => {
-//       cb(null, new Date().valueOf() + path.extname(file.originalname));
-//     }
-//   })
-// });
 
 const upload = multer({
   storage: multerS3({
