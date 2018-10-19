@@ -100,6 +100,11 @@ app.get("/:pageId", (req, res) => {
   });
 });
 
+// Comment Process
+app.get("/comment/:pageId", (req, res) => {
+  // DB
+});
+
 // Create Process
 app.post("/create", upload.single("uploaded"), (req, res) => {
   const body = req.body;
