@@ -134,5 +134,3 @@ typings/
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 
-# Ignore uploads/
-uploads
