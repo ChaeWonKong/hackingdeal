@@ -54,13 +54,13 @@ app.get("/delete", (req, res) => {
 app.get("/delete/:pageId", (req, res) => {
   fs.readFile(path.join(__dirname + "/data/db.json"), (err, data) => {
     if (err) throw err;
-    let DATA = JSON.parse(data).deals;
+    let parsedData = JSON.parse(data).deals;
     const targetIndex = _.indexOf(
-      DATA,
-      _.find(DATA, { id: req.params.pageId })
+      parsedData,
+      _.find(parsedData, { id: req.params.pageId })
     );
-    DATA.splice(targetIndex, 1);
-    DATA = JSON.stringify({ deals: DATA }, null, 3);
+    parsedData.splice(targetIndex, 1);
+    const DATA = JSON.stringify({ deals: parsedData }, null, 3);
 
     fs.writeFile(path.join(__dirname + "/data/db.json"), DATA, err => {
       if (err) throw err;
@@ -147,7 +147,7 @@ app.post("/create", upload.single("uploaded"), (req, res) => {
       comments: []
     };
     parsedData.push(newData);
-    const DATA = JSON.stringify({ deals: parsedDAta }, null, 3);
+    const DATA = JSON.stringify({ deals: parsedData }, null, 3);
 
     fs.writeFile(path.join(__dirname + "/data/db.json"), DATA, err => {
       if (err) throw err;
