@@ -5,14 +5,12 @@ const template = require("./public/template");
 const bodyParser = require("body-parser");
 const _ = require("lodash");
 
-// Image Upload
 const AWS = require("aws-sdk");
-AWS.config.loadFromPath(__dirname + "/config/awsconfig.json");
-const s3 = new AWS.S3();
-
 const multer = require("multer");
 const multerS3 = require("multer-s3");
-
+// Image Upload
+AWS.config.loadFromPath(__dirname + "/config/awsconfig.json");
+const s3 = new AWS.S3();
 const upload = multer({
   storage: multerS3({
     s3,
