@@ -80,7 +80,7 @@ module.exports = {
         </html>
                 `;
   },
-  detail: (title, price, img, description, url, comments) => {
+  detail: (id, title, price, img, description, url, comments) => {
     const commentItem = comments
       ? comments
           .map(comment => {
@@ -148,7 +148,7 @@ module.exports = {
             <div class="comment-container">
             ${commentItem}
             </div>
-            ${commentHTML}
+            ${commentHTML(id)}
         </div>
     </div>
 </body>

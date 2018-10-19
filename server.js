@@ -84,6 +84,7 @@ app.get("/:pageId", (req, res) => {
       const item = DATA[targetIndex];
       if (item) {
         const html = template.detail(
+          item.id,
           item.title,
           item.price,
           item.img,
