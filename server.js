@@ -7,8 +7,8 @@ const _ = require("lodash");
 
 // Image Upload
 const AWS = require("aws-sdk");
-AWS.config.loadFromPath(__dirname + "/../config/awsconfig.json");
-const s3 = new AWS.s3();
+AWS.config.loadFromPath(__dirname + "/config/awsconfig.json");
+const s3 = new AWS.S3();
 
 const multer = require("multer");
 const multerS3 = require("multer-s3");
@@ -29,8 +29,8 @@ const upload = multer({
     bucket: "hackingdeal",
     key: (req, file, cb) => {
       cb(null, new Date().valueOf() + path.extname(file.originalname));
-      acl: "public-read-write";
-    }
+    },
+    acl: "public-read-write"
   })
 });
 
@@ -39,7 +39,6 @@ const app = express();
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Create Route
 app.get("/new", (req, res) => {
@@ -149,10 +148,11 @@ app.post("/create", upload.single("uploaded"), (req, res) => {
   const body = req.body;
   fs.readFile(path.join(__dirname + "/data/db.json"), (err, data) => {
     if (err) throw err;
-
     let parsedData = JSON.parse(data).deals;
     const latestItem = parsedData.length - 1;
-    const image = req.file.path ? req.file.path : body.img;
+    const image = req.file.key
+      ? "https://s3.ap-northeast-2.amazonaws.com/hackingdeal/" + req.file.key
+      : body.img;
     const newData = {
       id: String(Number(parsedData[latestItem].id) + 1),
       title: body.title,
