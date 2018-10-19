@@ -40,7 +40,9 @@ module.exports = {
     return `
         ${header}
             <div class="container">
-                ${items}
+                <div class="sub-container">
+                    ${items}
+                </div>
             </div>
             </body>
         </html>
