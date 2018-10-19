@@ -107,12 +107,24 @@ app.post("/comment/:pageId", (req, res) => {
     if (err) throw err;
 
     let parsedData = JSON.parse(data);
-    const comments = parsedData.deals[req.params.pageId].comments;
+    let targetIndex = _.indexOf(
+      parsedData.deals,
+      _.find(parsedData.deals, { id: req.params.pageId })
+    );
+    let comments = parsedData.deals[targetIndex].comments;
     const newId = comments.length;
     const body = req.body;
-    comments.push({ id: newId, nicName: body.nicName, content: body.content });
+    comments.push({
+      id: newId,
+      nickName: body.nickName,
+      content: body.content
+    });
+    const DATA = JSON.stringify(parsedData, null, 3);
 
-    // Rewrite process
+    fs.writeFile(path.join(__dirname + "/data/db.json"), DATA, err => {
+      if (err) throw err;
+      res.redirect(302, `/${req.params.pageId}`);
+    });
   });
 });
 
@@ -132,15 +144,13 @@ app.post("/create", upload.single("uploaded"), (req, res) => {
       img: image,
       description: body.description,
       url: body.url,
-      comment: []
+      comments: []
     };
     parsedData.push(newData);
     const DATA = JSON.stringify({ deals: parsedDAta }, null, 3);
 
     fs.writeFile(path.join(__dirname + "/data/db.json"), DATA, err => {
-      if (err) {
-        throw err;
-      }
+      if (err) throw err;
       res.redirect(302, "/");
     });
   });
