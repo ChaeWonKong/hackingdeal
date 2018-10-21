@@ -88,7 +88,8 @@ module.exports = {
           .map(comment => {
             return `
         <div class="comment">
-        <p class="comment-name">${comment.nickName}</p>
+        <span class="comment-name">${comment.nickName}</span>
+        <span class="comment-content">${comment.date}</span>
         <p class="comment-content">${comment.content}</p>
         </div>
         `;

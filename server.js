@@ -4,7 +4,7 @@ const fs = require("fs");
 const template = require("./public/template");
 const bodyParser = require("body-parser");
 const _ = require("lodash");
-
+const uuidv1 = require("uuid/v1");
 const AWS = require("aws-sdk");
 const multer = require("multer");
 const multerS3 = require("multer-s3");
@@ -42,12 +42,11 @@ app.post("/create", upload.single("uploaded"), (req, res) => {
   fs.readFile(path.join(__dirname + "/data/db.json"), (err, data) => {
     if (err) throw err;
     let parsedData = JSON.parse(data).deals;
-    const latestItem = parsedData.length - 1;
     const image = req.file.key
       ? "https://s3.ap-northeast-2.amazonaws.com/hackingdeal/" + req.file.key
       : body.img;
     const newData = {
-      id: String(Number(parsedData[latestItem].id) + 1),
+      id: uuidv1(),
       title: body.title,
       price: body.price,
       img: image,
@@ -76,10 +75,10 @@ app.post("/comment/:pageId", (req, res) => {
       _.find(parsedData.deals, { id: req.params.pageId })
     );
     let comments = parsedData.deals[targetIndex].comments;
-    const newId = comments.length;
     const body = req.body;
     comments.push({
-      id: newId,
+      id: uuidv1(),
+      date: new Date().toLocaleString(),
       nickName: body.nickName,
       content: body.content
     });
