@@ -138,9 +138,7 @@ module.exports = {
                         <li>상품요약</li>
                     </ul>
                     <div class="btn-buy-container">
-                        <a href="${url}">
-                        <button class="btn-buy">Shop Now</button>
-                        </a>
+                        <button class="btn-buy" onclick="window.open('${url}')">Shop Now</button>
                     </div>
                 </div>
             </div>
