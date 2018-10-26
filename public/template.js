@@ -3,15 +3,32 @@ const commentHTML = require("./comment");
 
 module.exports = {
   create: () => {
+    const relatedItems = n => {
+      let HTML = ``;
+      for (let i = 1; i <= n; i++) {
+        HTML += `<div>
+            <span>${i}. </span>
+            <input placeholder="title" />
+            <input placeholder="price" />
+            <input placeholder="purchase Link" />
+            <input type="file" name="related-img" placeholder="image" />
+        </div> `;
+      }
+      return HTML;
+    };
     return `
             ${header}
-                <form action="/create" method="post" class="create-container" enctype="multipart/form-data">
+                <form id="create-form" action="/create" method="post" class="create-container" enctype="multipart/form-data">
                     <input class="create-input" type="text" name="title" placeholder="Title" required="required" />
                     <input class="create-input" type="text" name="price" placeholder="Price" required="required" />
                     <input class="create-input" type="text" name="img" placeholder="Image Url" />
                     <input class="create-input" type="file" name="uploaded" />
                     <input class="create-input" type="text" name="url" placeholder="Purchase Link" required="required" />
                     <Textarea class="create-textarea" name="description" placeholder="Description" required="required"></Textarea>
+                    <p>Add Related Items</p>
+                    ${relatedItems(8)}
+                    
+                    <br />
                     <input type="submit" value="submit" class="create-button"/>
                 </form>
             </html>
