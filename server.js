@@ -64,7 +64,7 @@ app.post(
         : body.img;
       const relatedImgs = req.files.relatedImg;
       let relatedItems = [];
-      for (let i = 1; i < relatedImgs.length; i++) {
+      for (let i = 0; i < relatedImgs.length; i++) {
         const item = {
           id: uuidv1(),
           title: body.relatedTitle[i],
