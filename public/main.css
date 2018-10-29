@@ -287,6 +287,10 @@ a {
     display: flex;
 }
 
+.related-container > div {
+    margin: 20px;
+}
+
 .comment {
     width: 1200px;
 }

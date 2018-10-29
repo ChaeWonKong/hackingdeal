@@ -115,14 +115,16 @@ module.exports = {
       : "";
 
     const relatedItems = relateds
-      ? relateds.map(related => {
-          return `<div id="${related.id}">
+      ? relateds
+          .map(related => {
+            return `<div id="${related.id}">
                     <img src="${related.img}" width="150px" />
                     <p>${related.title}</p>
                     <p>${related.price}</p>
-                    <a href="${related.url}">Purchase</a>
+                    <a href="${related.url}"><button>Purchase</button></a>
                 </div>`;
-        })
+          })
+          .join("")
       : "<div>loading</div>";
 
     return `
