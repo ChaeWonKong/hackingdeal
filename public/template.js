@@ -11,7 +11,7 @@ module.exports = {
             <input name="relatedTitle" placeholder="title" />
             <input name="relatedPrice" placeholder="price" />
             <input name="relatedLink" placeholder="purchase Link" />
-            <input name="relatedImg" type="file" name="related-img" placeholder="image" />
+            <input name="relatedImg" type="file" placeholder="image" />
         </div> `;
       }
       return HTML;
