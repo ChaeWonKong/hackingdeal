@@ -51,7 +51,7 @@ app.get("/new", (req, res) => {
 // Create Process
 app.post(
   "/create",
-  upload.fileds([{ name: "uploaded" }, { name: "relatedImg" }]),
+  upload.fields([{ name: "uploaded" }, { name: "relatedImg" }]),
   (req, res) => {
     const body = req.body;
     fs.readFile(path.join(__dirname + "/data/db.json"), (err, data) => {
