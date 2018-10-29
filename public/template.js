@@ -8,10 +8,10 @@ module.exports = {
       for (let i = 1; i <= n; i++) {
         HTML += `<div>
             <span>${i}. </span>
-            <input placeholder="title" />
-            <input placeholder="price" />
-            <input placeholder="purchase Link" />
-            <input type="file" name="related-img" placeholder="image" />
+            <input name="relatedTitle" placeholder="title" />
+            <input name="relatedPrice" placeholder="price" />
+            <input name="relatedLink" placeholder="purchase Link" />
+            <input name="relatedImg" type="file" name="related-img" placeholder="image" />
         </div> `;
       }
       return HTML;

@@ -45,6 +45,17 @@ app.post("/create", upload.single("uploaded"), (req, res) => {
     const image = req.file.key
       ? "https://s3.ap-northeast-2.amazonaws.com/hackingdeal/" + req.file.key
       : body.img;
+    const relatedItems = [];
+    for (let i = 0; i < body.relatedTitle.length; i++) {
+      const item = {
+        id: uuidv1(),
+        title: body.relatedTitle[i],
+        price: body.relatedPrice[i],
+        url: body.relatedLink[i],
+        img: body.relatedImg[i]
+      };
+      relatedItems.push(item);
+    }
     const newData = {
       id: uuidv1(),
       title: body.title,
@@ -52,7 +63,8 @@ app.post("/create", upload.single("uploaded"), (req, res) => {
       img: image,
       description: body.description,
       url: body.url,
-      comments: []
+      comments: [],
+      relatedItems
     };
     parsedData.push(newData);
     const DATA = JSON.stringify({ deals: parsedData }, null, 3);
