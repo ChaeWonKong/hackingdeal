@@ -99,7 +99,7 @@ module.exports = {
         </html>
                 `;
   },
-  detail: (id, title, price, img, description, url, comments) => {
+  detail: (id, title, price, img, description, url, comments, relateds) => {
     const commentItem = comments
       ? comments
           .map(comment => {
@@ -113,6 +113,17 @@ module.exports = {
           })
           .join("")
       : "";
+
+    const relatedItems = relateds
+      ? relateds.map(related => {
+          return `<div id="${related.id}">
+                    <img src="${related.img}" width="150px" />
+                    <p>${related.title}</p>
+                    <p>${related.price}</p>
+                    <a href="${related.url}">Purchase</a>
+                </div>`;
+        })
+      : "<div>loading</div>";
 
     return `
     ${header}
@@ -162,6 +173,9 @@ module.exports = {
             <hr class="detail-hr"/>
             <div class="detail-conB">
                 ${description}
+            </div>
+            <div class="related-container">
+            ${relatedItems}
             </div>
             <div class="comment-container">
             ${commentItem}

@@ -10,30 +10,30 @@ const multer = require("multer");
 const multerS3 = require("multer-s3");
 
 // Image Upload with AWS
-// AWS.config.loadFromPath(__dirname + "/config/awsconfig.json");
-// const s3 = new AWS.S3();
-// const upload = multer({
-//   storage: multerS3({
-//     s3,
-//     bucket: "hackingdeal",
-//     key: (req, file, cb) => {
-//       cb(null, new Date().valueOf() + path.extname(file.originalname));
-//     },
-//     acl: "public-read-write"
-//   })
-// });
-
-// Image Upload with local folder
+AWS.config.loadFromPath(__dirname + "/config/awsconfig.json");
+const s3 = new AWS.S3();
 const upload = multer({
-  storage: multer.diskStorage({
-    destination: function(req, file, cb) {
-      cb(null, "uploads/");
-    },
-    filename: function(req, file, cb) {
+  storage: multerS3({
+    s3,
+    bucket: "hackingdeal",
+    key: (req, file, cb) => {
       cb(null, new Date().valueOf() + path.extname(file.originalname));
-    }
+    },
+    acl: "public-read-write"
   })
 });
+
+// // Image Upload with local folder
+// const upload = multer({
+//   storage: multer.diskStorage({
+//     destination: function(req, file, cb) {
+//       cb(null, "uploads/");
+//     },
+//     filename: function(req, file, cb) {
+//       cb(null, new Date().valueOf() + path.extname(file.originalname));
+//     }
+//   })
+// });
 
 const app = express();
 
@@ -57,18 +57,22 @@ app.post(
     fs.readFile(path.join(__dirname + "/data/db.json"), (err, data) => {
       if (err) throw err;
       let parsedData = JSON.parse(data).deals;
-      const image = req.files[0].key
+      console.log(req.files);
+      const image = req.files.uploaded[0].filename
         ? "https://s3.ap-northeast-2.amazonaws.com/hackingdeal/" +
-          req.files[0].key
+          req.files.uploaded[0].filename
         : body.img;
-      const relatedItems = req.files;
-      for (let i = 1; i < relatedItems.length; i++) {
+      const relatedImgs = req.files.relatedImg;
+      let relatedItems = [];
+      for (let i = 1; i < relatedImgs.length; i++) {
         const item = {
           id: uuidv1(),
           title: body.relatedTitle[i],
           price: body.relatedPrice[i],
           url: body.relatedLink[i],
-          img: body.relatedImg[i]
+          img:
+            "https://s3.ap-northeast-2.amazonaws.com/hackingdeal/" +
+            relatedImgs[i].filename
         };
         relatedItems.push(item);
       }
@@ -178,7 +182,8 @@ app.get("/:pageId", (req, res) => {
           item.img,
           item.description,
           item.url,
-          item.comments
+          item.comments,
+          item.relatedItems
         );
         res.sendFile(path.join(__dirname, "/public"));
         res.send(html);
