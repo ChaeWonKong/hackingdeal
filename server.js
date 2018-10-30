@@ -13,32 +13,6 @@ const multerS3 = require("multer-s3");
 const indexRouter = require("./routes/index");
 const createRouter = require("./routes/create");
 
-// Image Upload with AWS
-// AWS.config.loadFromPath(__dirname + "/config/awsconfig.json");
-// const s3 = new AWS.S3();
-// const upload = multer({
-//   storage: multerS3({
-//     s3,
-//     bucket: "hackingdeal",
-//     key: (req, file, cb) => {
-//       cb(null, new Date().valueOf() + path.extname(file.originalname));
-//     },
-//     acl: "public-read-write"
-//   })
-// });
-
-// // Image Upload with local folder
-// const upload = multer({
-//   storage: multer.diskStorage({
-//     destination: function(req, file, cb) {
-//       cb(null, "uploads/");
-//     },
-//     filename: function(req, file, cb) {
-//       cb(null, new Date().valueOf() + path.extname(file.originalname));
-//     }
-//   })
-// });
-
 const app = express();
 
 // Import Routers
@@ -58,61 +32,6 @@ const getDataAndIndex = (req, data) => {
   );
   return { parsedData, targetIndex };
 };
-
-// Create Route
-// app.get("/new", (req, res) => {
-//   const html = template.create();
-//   res.sendFile(path.join(__dirname, "/public"));
-//   res.send(html);
-// });
-
-// Create Process
-// app.post(
-//   "/create",
-//   upload.fields([{ name: "uploaded" }, { name: "relatedImg" }]),
-//   (req, res) => {
-//     const body = req.body;
-//     fs.readFile(path.join(__dirname + "/data/db.json"), (err, data) => {
-//       if (err) throw err;
-//       let parsedData = JSON.parse(data).deals;
-//       const image = req.files.uploaded[0].filename
-//         ? "https://s3.ap-northeast-2.amazonaws.com/hackingdeal/" +
-//           req.files.uploaded[0].filename
-//         : body.img;
-//       const relatedImgs = req.files.relatedImg;
-//       let relatedItems = [];
-//       for (let i = 0; i < relatedImgs.length; i++) {
-//         const item = {
-//           id: uuidv1(),
-//           title: body.relatedTitle[i],
-//           price: body.relatedPrice[i],
-//           url: body.relatedLink[i],
-//           img:
-//             "https://s3.ap-northeast-2.amazonaws.com/hackingdeal/" +
-//             relatedImgs[i].filename
-//         };
-//         relatedItems.push(item);
-//       }
-//       const newData = {
-//         id: uuidv1(),
-//         title: body.title,
-//         price: body.price,
-//         img: image,
-//         description: body.description,
-//         url: body.url,
-//         comments: [],
-//         relatedItems
-//       };
-//       parsedData.push(newData);
-//       const DATA = JSON.stringify({ deals: parsedData }, null, 3);
-
-//       fs.writeFile(path.join(__dirname + "/data/db.json"), DATA, err => {
-//         if (err) throw err;
-//         res.redirect(302, "/");
-//       });
-//     });
-//   }
-// );
 
 // Comment Process
 app.post("/comment/:pageId", (req, res) => {
