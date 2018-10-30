@@ -15,7 +15,7 @@ app.use(express.static(path.resolve(__dirname, "../public")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Import Routers
+// Use Routers
 app.use("/", downloadRouter);
 app.use("/", createRouter);
 app.use("/", deleteRouter);
