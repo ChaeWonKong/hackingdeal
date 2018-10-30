@@ -7,7 +7,7 @@ const indexRouter = require("./routes/index");
 const createRouter = require("./routes/create");
 const deleteRouter = require("./routes/delete");
 const detailRouter = require("./routes/detail");
-const downloadRouter = require("./routes/download");
+const downloadRouter = require("./routes/data");
 
 const app = express();
 
@@ -16,10 +16,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Import Routers
+app.use("/", downloadRouter);
 app.use("/", createRouter);
 app.use("/", deleteRouter);
 app.use("/", detailRouter);
-app.use("/", downloadRouter);
 app.use("/", indexRouter);
 
 // Update Route
