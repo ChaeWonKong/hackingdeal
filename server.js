@@ -5,9 +5,6 @@ const template = require("./public/template");
 const bodyParser = require("body-parser");
 const _ = require("lodash");
 const uuidv1 = require("uuid/v1");
-const AWS = require("aws-sdk");
-const multer = require("multer");
-const multerS3 = require("multer-s3");
 
 // Import Routers
 const indexRouter = require("./routes/index");
