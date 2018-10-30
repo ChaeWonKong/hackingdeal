@@ -3,7 +3,7 @@ const router = express.Router();
 const fs = require("fs");
 const path = require("path");
 const template = require("../public/template");
-const getDataAndIndex = require("../modules");
+const getDataAndIndex = require("../server/modules");
 
 // Detail Route
 router.get("/:pageId", (req, res) => {

@@ -7,7 +7,7 @@ const uuidv1 = require("uuid/v1");
 const AWS = require("aws-sdk");
 const multer = require("multer");
 const multerS3 = require("multer-s3");
-const getDataAndIndex = require("../modules");
+const getDataAndIndex = require("../server/modules");
 
 // Image Upload with AWS
 AWS.config.loadFromPath(path.resolve(__dirname, "../config/awsconfig.json"));
