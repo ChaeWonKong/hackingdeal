@@ -41,6 +41,16 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Refactor functions
+const getDataAndIndex = (req, data) => {
+  const parsedData = JSON.parse(data).deals;
+  const targetIndex = _.indexOf(
+    parsedData,
+    _.find(parsedData, { id: req.params.pageId })
+  );
+  return { parsedData, targetIndex };
+};
+
 // Create Route
 app.get("/new", (req, res) => {
   const html = template.create();
@@ -57,7 +67,6 @@ app.post(
     fs.readFile(path.join(__dirname + "/data/db.json"), (err, data) => {
       if (err) throw err;
       let parsedData = JSON.parse(data).deals;
-      console.log(req.files);
       const image = req.files.uploaded[0].filename
         ? "https://s3.ap-northeast-2.amazonaws.com/hackingdeal/" +
           req.files.uploaded[0].filename
@@ -101,13 +110,8 @@ app.post(
 app.post("/comment/:pageId", (req, res) => {
   fs.readFile(path.join(__dirname + "/data/db.json"), (err, data) => {
     if (err) throw err;
-
-    let parsedData = JSON.parse(data);
-    let targetIndex = _.indexOf(
-      parsedData.deals,
-      _.find(parsedData.deals, { id: req.params.pageId })
-    );
-    let comments = parsedData.deals[targetIndex].comments;
+    let { parsedData, targetIndex } = getDataAndIndex(req, data);
+    let comments = parsedData[targetIndex].comments;
     const body = req.body;
     comments.push({
       id: uuidv1(),
@@ -115,7 +119,7 @@ app.post("/comment/:pageId", (req, res) => {
       nickName: body.nickName,
       content: body.content
     });
-    const DATA = JSON.stringify(parsedData, null, 3);
+    const DATA = JSON.stringify({ deals: parsedData }, null, 3);
 
     fs.writeFile(path.join(__dirname + "/data/db.json"), DATA, err => {
       if (err) throw err;
@@ -146,11 +150,7 @@ app.get("/delete", (req, res) => {
 app.get("/delete/:pageId", (req, res) => {
   fs.readFile(path.join(__dirname + "/data/db.json"), (err, data) => {
     if (err) throw err;
-    let parsedData = JSON.parse(data).deals;
-    const targetIndex = _.indexOf(
-      parsedData,
-      _.find(parsedData, { id: req.params.pageId })
-    );
+    let { parsedData, targetIndex } = getDataAndIndex(req, data);
     parsedData.splice(targetIndex, 1);
     const DATA = JSON.stringify({ deals: parsedData }, null, 3);
 
@@ -168,12 +168,8 @@ app.get("/:pageId", (req, res) => {
   fs.readFile(path.join(__dirname + "/data/db.json"), (err, data) => {
     if (err) throw err;
     else {
-      const DATA = JSON.parse(data).deals;
-      const targetIndex = _.indexOf(
-        DATA,
-        _.find(DATA, { id: req.params.pageId })
-      );
-      const item = DATA[targetIndex];
+      const { parsedData, targetIndex } = getDataAndIndex(req, data);
+      const item = parsedData[targetIndex];
       if (item) {
         const html = template.detail(
           item.id,

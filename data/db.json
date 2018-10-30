@@ -7,7 +7,20 @@
          "img": "https://static.slickdealscdn.com/attachment/3/5/9/4/0/2/8/7382851.attach",
          "description": "Caseology Wavelength Series Case for iPhone XR (various colors)",
          "url": "https://slickdeals.net/f/12079715-80-off-code-for-caseology-for-iphone-xr-case-wavelength-series-free-shipping-2-8?src=frontpage",
-         "comments": []
+         "comments": [
+            {
+               "id": "5f697d30-dbe6-11e8-905a-3d02f8ad7128",
+               "date": "2018-10-30 10:51:52",
+               "nickName": "상산조자룡이다",
+               "content": "나는 상산의 조자룡이다"
+            },
+            {
+               "id": "65943460-dbe7-11e8-9dd7-17005a7b4959",
+               "date": "2018-10-30 10:59:12",
+               "nickName": "숭어다랑어",
+               "content": "숭어다랑어입니다"
+            }
+         ]
       },
       {
          "id": "22",
@@ -40,24 +53,6 @@
                "price": "a",
                "url": "a",
                "img": "1540799601249.jpg"
-            }
-         ]
-      },
-      {
-         "id": "17a62070-db50-11e8-95f9-9fe978ab053e",
-         "title": "b",
-         "price": "b",
-         "img": "uploads/1540799767509.jpg",
-         "description": "b",
-         "url": "b",
-         "comments": [],
-         "relatedItems": [
-            {
-               "id": "17a5f960-db50-11e8-95f9-9fe978ab053e",
-               "title": "b",
-               "price": "b",
-               "url": "b",
-               "img": "1540799767531.jpg"
             }
          ]
       }
