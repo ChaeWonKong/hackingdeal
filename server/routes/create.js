@@ -2,15 +2,15 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const path = require("path");
-const template = require("../public/template");
+const template = require("../../public/template");
 const uuidv1 = require("uuid/v1");
 const AWS = require("aws-sdk");
 const multer = require("multer");
 const multerS3 = require("multer-s3");
-const getDataAndIndex = require("../server/modules");
+const getDataAndIndex = require("../modules");
 
 // Image Upload with AWS
-AWS.config.loadFromPath(path.resolve(__dirname, "../config/awsconfig.json"));
+AWS.config.loadFromPath(path.resolve(__dirname, "../../config/awsconfig.json"));
 const s3 = new AWS.S3();
 const upload = multer({
   storage: multerS3({
@@ -38,7 +38,7 @@ const upload = multer({
 // Create Route
 router.get("/new", (req, res) => {
   const html = template.create();
-  res.sendFile(path.resolve(__dirname, "../public"));
+  res.sendFile(path.resolve(__dirname, "../../public"));
   res.send(html);
 });
 

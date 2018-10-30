@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const path = require("path");
-const template = require("../public/template");
-const getDataAndIndex = require("../server/modules");
+const template = require("../../public/template");
+const getDataAndIndex = require("../modules");
 
 // Detail Route
 router.get("/:pageId", (req, res) => {
@@ -23,7 +23,7 @@ router.get("/:pageId", (req, res) => {
           item.comments,
           item.relatedItems
         );
-        res.sendFile(path.resolve(__dirname, "../public"));
+        res.sendFile(path.resolve(__dirname, "../../public"));
         res.send(html);
       } else {
         res.send("oops");

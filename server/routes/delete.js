@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const path = require("path");
-const template = require("../public/template");
-const getDataAndIndex = require("../server/modules");
+const template = require("../../public/template");
+const getDataAndIndex = require("../modules");
 
 // Delete Data page
 router.get("/delete", (req, res) => {
@@ -12,7 +12,7 @@ router.get("/delete", (req, res) => {
     else {
       const items = JSON.parse(data).deals;
       const html = template.delete(items);
-      res.sendFile(path.resolve(__dirname, "../public"));
+      res.sendFile(path.resolve(__dirname, "../../public"));
       res.send(html);
     }
   });
