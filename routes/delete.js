@@ -3,17 +3,7 @@ const router = express.Router();
 const fs = require("fs");
 const path = require("path");
 const template = require("../public/template");
-const _ = require("lodash");
-
-// Refactor functions
-const getDataAndIndex = (req, data) => {
-  const parsedData = JSON.parse(data).deals;
-  const targetIndex = _.indexOf(
-    parsedData,
-    _.find(parsedData, { id: req.params.pageId })
-  );
-  return { parsedData, targetIndex };
-};
+const getDataAndIndex = require("../modules");
 
 // Delete Data page
 router.get("/delete", (req, res) => {

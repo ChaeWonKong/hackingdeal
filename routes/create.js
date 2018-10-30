@@ -4,20 +4,10 @@ const fs = require("fs");
 const path = require("path");
 const template = require("../public/template");
 const uuidv1 = require("uuid/v1");
-const _ = require("lodash");
 const AWS = require("aws-sdk");
 const multer = require("multer");
 const multerS3 = require("multer-s3");
-
-// Refactor functions
-const getDataAndIndex = (req, data) => {
-  const parsedData = JSON.parse(data).deals;
-  const targetIndex = _.indexOf(
-    parsedData,
-    _.find(parsedData, { id: req.params.pageId })
-  );
-  return { parsedData, targetIndex };
-};
+const getDataAndIndex = require("../modules");
 
 // Image Upload with AWS
 AWS.config.loadFromPath(path.resolve(__dirname, "../config/awsconfig.json"));

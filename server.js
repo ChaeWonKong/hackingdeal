@@ -10,6 +10,7 @@ const uuidv1 = require("uuid/v1");
 const indexRouter = require("./routes/index");
 const createRouter = require("./routes/create");
 const deleteRouter = require("./routes/delete");
+const detailRouter = require("./routes/detail");
 
 const app = express();
 
@@ -21,16 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", indexRouter);
 app.use("/", createRouter);
 app.use("/", deleteRouter);
-
-// Refactor functions
-const getDataAndIndex = (req, data) => {
-  const parsedData = JSON.parse(data).deals;
-  const targetIndex = _.indexOf(
-    parsedData,
-    _.find(parsedData, { id: req.params.pageId })
-  );
-  return { parsedData, targetIndex };
-};
+app.use("/", detailRouter);
 
 // data page
 app.get("/data", (req, res) => {
@@ -39,31 +31,31 @@ app.get("/data", (req, res) => {
 
 // Update Route
 
-// Detail Route
-app.get("/:pageId", (req, res) => {
-  fs.readFile(path.join(__dirname + "/data/db.json"), (err, data) => {
-    if (err) throw err;
-    else {
-      const { parsedData, targetIndex } = getDataAndIndex(req, data);
-      const item = parsedData[targetIndex];
-      if (item) {
-        const html = template.detail(
-          item.id,
-          item.title,
-          item.price,
-          item.img,
-          item.description,
-          item.url,
-          item.comments,
-          item.relatedItems
-        );
-        res.sendFile(path.join(__dirname, "/public"));
-        res.send(html);
-      } else {
-        res.send("oops");
-      }
-    }
-  });
-});
+// // Detail Route
+// app.get("/:pageId", (req, res) => {
+//   fs.readFile(path.join(__dirname + "/data/db.json"), (err, data) => {
+//     if (err) throw err;
+//     else {
+//       const { parsedData, targetIndex } = getDataAndIndex(req, data);
+//       const item = parsedData[targetIndex];
+//       if (item) {
+//         const html = template.detail(
+//           item.id,
+//           item.title,
+//           item.price,
+//           item.img,
+//           item.description,
+//           item.url,
+//           item.comments,
+//           item.relatedItems
+//         );
+//         res.sendFile(path.join(__dirname, "/public"));
+//         res.send(html);
+//       } else {
+//         res.send("oops");
+//       }
+//     }
+//   });
+// });
 
 module.exports = app;
