@@ -4,9 +4,20 @@ const fs = require("fs");
 const path = require("path");
 const template = require("../public/template");
 const uuidv1 = require("uuid/v1");
+const _ = require("lodash");
 const AWS = require("aws-sdk");
 const multer = require("multer");
 const multerS3 = require("multer-s3");
+
+// Refactor functions
+const getDataAndIndex = (req, data) => {
+  const parsedData = JSON.parse(data).deals;
+  const targetIndex = _.indexOf(
+    parsedData,
+    _.find(parsedData, { id: req.params.pageId })
+  );
+  return { parsedData, targetIndex };
+};
 
 // Image Upload with AWS
 AWS.config.loadFromPath(path.resolve(__dirname, "../config/awsconfig.json"));
@@ -90,5 +101,27 @@ router.post(
     });
   }
 );
+
+// Comment Process
+router.post("/comment/:pageId", (req, res) => {
+  fs.readFile(path.resolve(__dirname, "../data/db.json"), (err, data) => {
+    if (err) throw err;
+    let { parsedData, targetIndex } = getDataAndIndex(req, data);
+    let comments = parsedData[targetIndex].comments;
+    const body = req.body;
+    comments.push({
+      id: uuidv1(),
+      date: new Date().toLocaleString(),
+      nickName: body.nickName,
+      content: body.content
+    });
+    const DATA = JSON.stringify({ deals: parsedData }, null, 3);
+
+    fs.writeFile(path.resolve(__dirname, "../data/db.json"), DATA, err => {
+      if (err) throw err;
+      res.redirect(302, `/${req.params.pageId}`);
+    });
+  });
+});
 
 module.exports = router;
